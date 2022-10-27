@@ -18,8 +18,11 @@ app.post('/post',(req, res)=>{
 
     res.send(allPosts)
 
-
 })
+
+
+
+
 
 app.get('/post', (req, res) => {
   res.send(allPosts)
