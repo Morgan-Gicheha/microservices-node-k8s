@@ -1,22 +1,23 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const randomstring = require("randomstring");
-
+const cors = require("cors")
 
 const app = express()
 
 allPosts = {};
 app.use(bodyParser.json());
+app.use(cors())
 
 app.post('/post',(req, res)=>{
     const id = randomstring.generate(5);
     const {title} = req.body
- 
+
     allPosts[id]={
         id, title
     }
 
-    res.send(allPosts)
+    res.status(201).send(allPosts)
 
 })
 
